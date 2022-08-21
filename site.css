@@ -1,0 +1,365 @@
+body {
+  background: url("img/indexbg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h3{
+  color: #00adb5;
+}
+.status{
+  font-size: 3rem;
+  color: #00adb5;
+}
+
+.container_trackinginformation{
+  margin-top: 0%;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  /* background-color: #222831; */
+  border: .5rem solid #222831;
+  font-family: 'Arial';
+  font-size: 30px;
+  line-height: 3rem;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+.container_container_trackinginformation{
+  margin-left: 2%;
+  text-align: left;
+  width: auto;
+}
+
+.c1{
+  color: #00adb5;
+  text-align: right;
+}
+
+.c1-1{
+  color: #222831;
+}
+
+.container_currentprogress{
+  text-align: center;
+}
+
+.indexlogo{
+  text-align: center;
+}
+
+.indexlogoimg{
+  width: 25rem;
+  margin-top: 2.5rem;
+}
+.maintitle{
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5rem;
+  font-family: 'Arial';
+  font-size: 60px;
+  color: #222831;
+}
+
+.maintitle2{
+  text-align: center;
+  padding-top: 3rem;
+  font-family: 'Arial';
+  font-size: 50px;
+  color: #eeeeee;
+  font-weight: bold;
+}
+
+.maintitle3{
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5rem;
+  font-family: 'Arial';
+  font-size: 70px;
+  color: #222831;
+}
+.subtitle{
+  padding-top: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-family: 'Arial';
+  font-style: normal;
+  font-size: 40px;
+  color: #00adb5;
+}
+
+.subtitle2{
+  margin-top: 2rem;
+  text-align: center;
+  font-family: 'Arial';
+  font-style: normal;
+  font-size: 2rem;
+  color: #00adb5;
+}
+
+.title_indextrackingnumber{
+  text-align: center;
+  padding-top: 1%;
+  font-family: 'Arial';
+  font-size: 36px;
+  color: #222831;
+}
+
+.title_indexcustomername{
+  text-align: center;
+  padding-top: 4%;
+  font-family: 'Arial';
+  font-size: 36px;
+  color: #102E4A;
+}
+
+.title_indexorderinformation{
+  text-align: center;
+  padding-top: 4%;
+  font-family: 'Arial';
+  font-size: 36px;
+  color: #222831;
+  font-weight: bold;
+}
+
+.title_developmentcycle{
+  text-align: center;
+  color: #00adb5;
+}
+.trackingnumberinput{
+  text-align: center;
+}
+
+.form_login{
+  background: #222831;
+  margin-top: 3rem;
+  margin-left: 40rem;
+  margin-right: 40rem;
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.form_trackingnumber{
+  background: #222831;
+  margin-top: 3rem;
+  margin-left: 35rem;
+  margin-right: 35rem;
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.button_stafflogin{
+  position: absolute;
+  left: 88%;
+  text-align: right;
+}
+
+.trackingnumbertextbox{
+  margin-top: 2rem;
+  font-size: 50px;
+  background-color: transparent;
+  border-top: none;
+  border-bottom: 1px solid #00adb5;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  color: #ffff;
+  font-family: 'Arial';
+  transition: 0.5s;
+  width: 35rem;
+}
+
+.trackingnumbertextbox:focus{
+  outline: none;
+  font-size: 50px;
+  box-shadow: 0px 8px #00f2ff;
+  transition: 0.5s;
+  
+  }
+
+.trackingnumbertextbox::placeholder{
+  font-size: 20px;
+}
+
+.input_indexusername{
+  margin-top: 2rem;
+  font-size: 2rem;
+  background-color: transparent;
+  border-top: none;
+  border-bottom: 1px solid #00adb5;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  color: #ffff;
+  font-family: 'Arial';
+  transition: 0.5s;
+}
+
+.input_indexusername::placeholder{
+  font-size: 20px;
+}
+
+.input_indexusername:focus{
+  outline: none;
+  box-shadow: 0px 8px #00f2ff;
+  transition: 0.5s;
+}
+
+.input_indexpassword{
+  margin-top: 2rem;
+  font-size: 2rem;
+  background-color: transparent;
+  border-top: none;
+  border-bottom: 1px solid #00adb5;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  color: #ffff;
+  font-family: 'Arial';
+  transition: 0.5s;
+}
+
+.input_indexpassword::placeholder{
+  font-size: 20px;
+}
+
+.input_indexpassword:focus{
+  outline: none;
+  box-shadow: 0px 8px #00f2ff;
+  transition: 0.5s;
+}
+
+.button_trackingnumbersubmit{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  background: #00adb5;
+  border-radius: 15px;
+  color: #fff;
+  font-family: 'Arial';
+  font-weight: bold;
+  font-size: 2rem;
+  width: 36rem;
+  border-color: #00adb5;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button_trackingnumbersubmit:hover{
+  background: #00f2ff;
+  border-color: #00f2ff;
+}
+
+.button_loginenter{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  background: #00adb5;
+  border-radius: 25px;
+  color: #fff;
+  font-family: 'Arial';
+  font-weight: bold;
+  font-size: 2rem;
+  width: 26rem;
+  border-color: #00adb5;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button_loginenter:hover{
+  background: #00f2ff;
+  border-color: #00f2ff;
+}
+
+.button_stafflogin1{
+  font-size: 25px;
+  color: #00adb5;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  width:220px;
+  background: #3b3b3b;
+  border-radius: 15px;
+  cursor: pointer;
+  border-color: #666d77;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.button_stafflogin1:hover{
+  transition: 0.3s;
+  color: #00f2ff;
+  background: #666d77;
+}
+
+.button_indexback{
+  position: absolute;
+}
+
+.button_indexback1{
+  font-size: 25px;
+  color: #00adb5;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  width:220px;
+  background: #3b3b3b;
+  border-radius: 15px;
+  cursor: pointer;
+  border-color: #666d77;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.button_indexback1:hover{
+  transition: 0.3s;
+  color: #00f2ff;
+  background: #666d77;
+}
+
+.indextrackingnumber{
+  text-align: center;
+  padding-top: 1%;
+  font-family: 'Arial';
+  font-size: 36px;
+  color: #00adb5;
+}
+p{
+  margin: 1rem;
+  font-family: 'Arial';
+  font-style: normal;
+  color: white;
+  font-weight: 400;
+  font-size: 40px;
+}
+
+.table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50rem;
+  color: #fff;
+  width: 60%;
+  border-color: #fff;
+}
+
+.row{
+  display: flex;
+  width: 100%;
+}
+
+.row div{
+  width: 100%;
+  color: #222831;
+}
+
