@@ -48,19 +48,21 @@
             </div>
             <div class="container-table">
                 <?php 
-                $query1 = pg_query($con, "SELECT * FROM accounts WHERE isadmin=1");
-                while ($row1 = pg_fetch_object($query1)){
-                    ?>
-                <input type="checkbox" class="cbx" id="cbx1" name="ids[]" value=<?=$row1->userid?> />
-                <label class="logs-cbx-blue" for="cbx1">
-                    <div>
-                        <div class="cell-records-logs-data-customer"><?=$row1->uname?></div>
-                        <div class="cell-records-logs-data-customer"></div>
-                        <div class="cell-records-logs-data-customer"></div>
-                        <div class="cell-records-logs-data-customer">Admin</div>
-                    </div>
-                </label>
-                <?php
+                if (!isset($_GET['search1'])){
+                    $query1 = pg_query($con, "SELECT * FROM accounts WHERE isadmin=1");
+                    while ($row1 = pg_fetch_object($query1)){
+                        ?>
+                    <input type="checkbox" class="cbx" id="cbx1" name="ids[]" value=<?=$row1->userid?> />
+                    <label class="logs-cbx-blue" for="cbx1">
+                        <div>
+                            <div class="cell-records-logs-data-customer"><?=$row1->uname?></div>
+                            <div class="cell-records-logs-data-customer"></div>
+                            <div class="cell-records-logs-data-customer"></div>
+                            <div class="cell-records-logs-data-customer">General Manager</div>
+                        </div>
+                    </label>
+                    <?php
+                    }
                 }
                 ?>
                 <?php

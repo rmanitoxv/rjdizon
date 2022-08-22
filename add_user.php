@@ -25,11 +25,17 @@
             }
             else{
                 $pw = md5($pw);
-                $query = "INSERT into accounts (uname, pw, isadmin, isstaff, user_isactive, user_date_of_inactive) VALUES ('$uname', '$pw', 0, 1, 1, '')";
+                $pos = $_POST['pos'];
+                $isadmin = 0
+                $isstaff = 1
+                if ($pos == "General Manager"){
+                    $isadmin = 1
+                    $isstaff = 0
+                }
+                $query = "INSERT into accounts (uname, pw, isadmin, isstaff, user_isactive, user_date_of_inactive) VALUES ('$uname', '$pw', $isadmin, $isstaff, 1, '')";
                 pg_query($con, $query);
                 $fname = $_POST['fname'];
                 $lname = $_POST['lname'];
-                $pos = $_POST['pos'];
                 $get_id = "SELECT userid from accounts WHERE uname='$uname' and user_isactive=1 LIMIT 1";
                 $get = pg_query($con, $get_id);
                 $id1 = pg_fetch_assoc($get);
@@ -101,12 +107,9 @@
                 <td class="cell-add-new-order-text" width="30%">Position</td>
                 <td colspan="3"><select name="pos" class="add-new-order-input-text" required >
                     <option selected disabled>Select</option>
-                    <option value="Finance">Finance</option>
                     <option value="Artist">Artist</option>
-                    <option value="Liaison Officer">Liaison Officer</option>
-                    <option value="Bindery">Binder</option>
-                    <option value="Cutter">Cutter</option>
-                    <option value="Operator">Operator</option>
+                    <option value="Office Clerk">Office Clerk</option>
+                    <option value="General Manager">General Manager</option>
                 </select></td>
             </tr>
         </table>
