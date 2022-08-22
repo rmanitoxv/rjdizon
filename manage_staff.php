@@ -9,9 +9,11 @@
             header ("Location: staff.php");
         }
         $query="SELECT * FROM accounts INNER JOIN staff ON accounts.userid = staff.userid WHERE user_isactive=1";
+        $query1 = pg_query($con, "SELECT * FROM accounts WHERE isadmin=1");
         if (isset($_GET['search1'])){
             $search=$_GET['search'];
             $query = "SELECT * FROM accounts INNER JOIN staff ON accounts.userid = staff.userid WHERE user_isactive=1 AND (uname LIKE '%$search%' OR stafffname LIKE '%$search%' OR stafflname LIKE '%$search%' OR staffposition LIKE '%$search%')";
+            $query1 = "SELECT * FROM accounts WHERE user_isactive=1 AND isadmin=1 AND uname LIKE '%$search%'";
         }
 ?>
 <!DOCTYPE html>
@@ -48,8 +50,6 @@
             </div>
             <div class="container-table">
                 <?php 
-                if (!isset($_GET['search1'])){
-                    $query1 = pg_query($con, "SELECT * FROM accounts WHERE isadmin=1");
                     while ($row1 = pg_fetch_object($query1)){
                         ?>
                     <input type="checkbox" class="cbx" id="cbx1" name="ids[]" value=<?=$row1->userid?> />
@@ -62,7 +62,6 @@
                         </div>
                     </label>
                     <?php
-                    }
                 }
                 ?>
                 <?php

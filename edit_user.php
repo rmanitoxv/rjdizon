@@ -53,7 +53,7 @@
                     if ($pos == "none"){
                         $pos = $result['staffposition'];
                     }
-                    $query = "UPDATE staff SET stafffname='$fname', stafflname='$lname', staffposition='$pos' WHERE userid ='$id'";
+                    $query = "UPDATE staff SET stafffname='$fname', stafflname='$lname', staffposition='$pos' WHERE userid='$id'";
                     pg_query($con, $query);
                 }
             }
