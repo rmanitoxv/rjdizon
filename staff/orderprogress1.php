@@ -18,7 +18,7 @@
         $customer = $result['pgcustomer'];
         $rows1 = pg_query($con, "SELECT * FROM projecttask WHERE pgid=$id AND taskProgress='$prog'");
         $progress = array("Product Design", "Proofing", "CTP Processing", "Mass Production", "Delivery");
-        $handler = array("Clerk", "Clerk, Binder, and Cutter", "Clerk, Binder, and Cutter", "General Manager");
+        $handler = array("Artist", "Office Clerk", "Office Clerk", "General Manager");
         $tasks = array(array("Receive design", "Buy plate", "Print design to plate"), array("Buy materials", "Produce single product", "Send product for approval"), array("Bring materials to second site", "Mass produce product", "Send products to first site"), array("Prepare documents", "On Delivery", "Delivered"));
         if (isset($_POST['done'])){
             $taskID = $_POST['id'];

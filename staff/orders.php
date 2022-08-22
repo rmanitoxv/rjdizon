@@ -13,13 +13,10 @@
         $role = $result['staffposition'];
         $status = 0;
         if ($role == "Artist"){
-            $status = '1';
-        }
-        if ($role == 'Finance'){
-            $s = [2, 3, 4];
+            $status = [1, 2];
             $status = implode(', ', $s);
         }
-        if ($role == 'Binder' || $role == 'Cutter'){
+        if ($role == 'Office Clerk'){
             $s = [3, 4];
             $status = implode(', ', $s);
         }

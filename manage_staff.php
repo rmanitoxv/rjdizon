@@ -55,7 +55,7 @@
                     <input type="checkbox" class="cbx" id="cbx1" name="ids[]" value=<?=$row1->userid?> />
                     <label class="logs-cbx-blue" for="cbx1">
                         <div>
-                            <div class="cell-records-logs-data-customer"><?=$row1->uname?></div>
+                            <div class="cell-records-logs-data-customer"><?=$row1->uname?></div>    
                             <div class="cell-records-logs-data-customer"></div>
                             <div class="cell-records-logs-data-customer"></div>
                             <div class="cell-records-logs-data-customer">General Manager</div>

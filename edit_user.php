@@ -129,12 +129,9 @@
                     <td class="cell-inventory-add-label">Position:</td>
                     <td><select class="cell-inventory-add-input" name="pos<?=$i?>" required>
                         <option selected disabled value="">Select</option>
-                        <option value="Finance">Finance</option>
                         <option value="Artist">Artist</option>
-                        <option value="Liaison Officer">Liaison Officer</option>
-                        <option value="Bindery">Bindery</option>
-                        <option value="Cutter">Cutter</option>
-                        <option value="Operator">Operator</option>
+                        <option value="Office Clerk">Office Clerk</option>
+                        <option value="General Manager">General Manager</option>
                     </select></td>
                 </tr>
             </table>
