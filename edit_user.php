@@ -124,9 +124,9 @@
                                         <option value="General Manager">General Manager</option>
                                     </select></td>
                                 </tr>
+                                <?php }} ?>
                         </table>
                 <?php
-                        }}
                     }
                 }
                 $query = pg_query($con, "SELECT * FROM accounts INNER JOIN staff ON accounts.userid = staff.userid WHERE accounts.userid='$id'");
