@@ -85,6 +85,7 @@
             for($i=0;$i<$count;$i++){
                 $id = $all_id[$i];
                 $sql = pg_query($con, "SELECT * FROM accounts WHERE userid=$id and isadmin=1");
+                $sql1 = pg_query($con, "SELECT * FROM staff WHERE userid=$id");
                 if (pg_num_rows($sql) == 1){
                     while ($row1 = pg_fetch_object($sql)){
                         ?>
@@ -102,8 +103,30 @@
                                 <td class="cell-inventory-add-label">Confirm Password:</td>
                                 <td><input class="cell-inventory-add-input" type="password" name="cpw<?=$i?>" value="<?=$row1->pw?>" required/></td>
                             </tr>
+                            <?php 
+                                if (pg_num_rows($sql1) == 1){
+                                    while ($row2 = pg_fetch_object($sql1)){
+                            ?>
+                                <tr>
+                                    <td class="cell-inventory-add-label">First Name:</td>
+                                    <td><input class="cell-inventory-add-input" type="text" name="fname<?=$i?>" value="<?=$row2->stafffname?>" required /></td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-inventory-add-label">Last Name:</td>
+                                    <td><input class="cell-inventory-add-input" type="text" name="lname<?=$i?>" value="<?=$row2->stafflname?>" required /></td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-inventory-add-label">Position:</td>
+                                    <td><select class="cell-inventory-add-input" name="pos<?=$i?>" required>
+                                        <option selected disabled value="">Select</option>
+                                        <option value="Artist">Artist</option>
+                                        <option value="Office Clerk">Office Clerk</option>
+                                        <option value="General Manager">General Manager</option>
+                                    </select></td>
+                                </tr>
                         </table>
                 <?php
+                        }}
                     }
                 }
                 $query = pg_query($con, "SELECT * FROM accounts INNER JOIN staff ON accounts.userid = staff.userid WHERE accounts.userid='$id'");
