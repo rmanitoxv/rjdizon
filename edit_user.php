@@ -39,11 +39,17 @@
                     if ($pw != $pw1){
                         $pw = md5($pw);
                     }
-                    $query = "UPDATE accounts SET uname='$uname', pw='$pw' WHERE userid='$id'";
+                    $pos = $_POST['pos'.$i];
+                    $isadmin = 0
+                    $isstaff = 1
+                    if ($pos == "General Manager"){
+                        $isadmin = 1
+                        $isstaff = 0
+                    }
+                    $query = "UPDATE accounts SET uname='$uname', pw='$pw', isadmin=$isadmin, isstaff=$isstaff WHERE userid='$id'";
                     pg_query($con, $query);
                     $fname = $_POST['fname'.$i];
                     $lname = $_POST['lname'.$i]; 
-                    $pos = $_POST['pos'.$i];
                     if ($pos == "none"){
                         $pos = $result['staffposition'];
                     }
