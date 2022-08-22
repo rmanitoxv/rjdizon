@@ -26,11 +26,11 @@
             else{
                 $pw = md5($pw);
                 $pos = $_POST['pos'];
-                $isadmin = 0
-                $isstaff = 1
+                $isadmin = 0;
+                $isstaff = 1;
                 if ($pos == "General Manager"){
-                    $isadmin = 1
-                    $isstaff = 0
+                    $isadmin = 1;
+                    $isstaff = 0;
                 }
                 $query = "INSERT into accounts (uname, pw, isadmin, isstaff, user_isactive, user_date_of_inactive) VALUES ('$uname', '$pw', $isadmin, $isstaff, 1, '')";
                 pg_query($con, $query);
