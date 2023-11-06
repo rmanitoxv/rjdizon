@@ -6,7 +6,7 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff/staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff/staff.php">';
         }
         $id = $_GET['id'];
         $query = pg_query($con, "SELECT * FROM projectgroup WHERE pgid=$id");
@@ -16,7 +16,7 @@
             $date= (date("F d, Y"));
             pg_query($con, "UPDATE projectgroup SET pg_isactive=0, pg_date_of_inactive='$date', pghandler='None' WHERE pgid=$id");
             pg_query($con, "UPDATE revenue SET r_isactive=0, r_date_of_inactive='$date' WHERE pgid=$id");
-            header ("Location: orders.php");
+            echo '<meta http-equiv="refresh" content="0;url=orders.php">';
         }
 ?>
 <!DOCTYPE php>
@@ -49,7 +49,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

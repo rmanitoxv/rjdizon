@@ -6,7 +6,7 @@
         $online = mysqli_query($con, "SELECT * FROM user WHERE userID = '$id'");
         $result =  mysqli_fetch_assoc($online);
         if ($result['isStaff'] == 1){
-            header ("Location: staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff.php">';
         }
         $id = $_GET['id'];
         if (isset($_POST['submit'])){
@@ -31,7 +31,7 @@
                 $desc = $row['projectDesc'];
                 mysqli_query($con, "INSERT INTO drdetails VALUES('', $drID, '$desc', '$qty', '$unit')");
             endforeach;
-            header ("Location: ordernum.php?id=$id");
+            echo '<meta http-equiv="refresh" content="0;url=ordernum.php?id=$id">';
         }
 ?>
 <!DOCTYPE php>
@@ -62,7 +62,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

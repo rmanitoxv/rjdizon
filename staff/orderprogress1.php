@@ -6,7 +6,7 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isadmin'] == 1){
-            header ("Location: ../admin.php");
+            echo '<meta http-equiv="refresh" content="0;url=../admin.php">';
         }
         $online = pg_query($con, "SELECT * FROM accounts INNER JOIN staff ON accounts.userID = staff.userID WHERE accounts.userID = '$id'");
         $result =  pg_fetch_assoc($online);
@@ -45,16 +45,16 @@
                         }
                     }
                 }
-                header("Location: orders.php");
+                echo '<meta http-equiv="refresh" content="0;url=orders.php">';
             }
             else{
-                header("Location: orderprogress1.php?id=$id");
+                echo '<meta http-equiv="refresh" content="0;url=orderprogress1.php?id=$id">';
             }
         }
         if (isset($_POST['undo'])){
             $taskID = $_POST['id'];
             pg_query($con, "UPDATE projecttask SET taskstatus=0 WHERE taskid=$taskID");
-            header("Location: orderprogress1.php?id=$id");
+            echo '<meta http-equiv="refresh" content="0;url=orderprogress1.php?id=$id">';
         }
         
 		$rows = pg_query($con, "SELECT * FROM projectmaterials WHERE pgid=$id AND pmprogress='$prog'");
@@ -127,7 +127,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

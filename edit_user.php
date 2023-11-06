@@ -6,10 +6,10 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff.php">';
         }
         if(!isset($_GET['ids'])){
-            header ("Location: manage_staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=manage_staff.php">';
         }
         $all_id = $_GET['ids'];
         $ids = implode(', ', $all_id);
@@ -23,14 +23,14 @@
                 $sql = pg_query($con, "SELECT * FROM accounts INNER JOIN staff ON accounts.userid = staff.userid WHERE uname='$uname' and user_isactive=1");
                 if ($pw != $cpw){
                     $error="Password and Change Password is not the same";
-                    header ("Location: edit_user.php?error=$error&ids=$all_id");
+                    echo '<meta http-equiv="refresh" content="0;url=edit_user.php?error=$error&ids=$all_id">';
                 }
                 else{
                     $result = pg_fetch_assoc($sql);
                     if(pg_num_rows($sql) > 0) {
                         if ($uname != $result['uname']){
                             $error="Username is already taken";
-                            header ("Location: edit_user.php?error=$error&ids=$all_id");
+                            echo '<meta http-equiv="refresh" content="0;url=edit_user.php?error=$error&ids=$all_id">';
                         }
                     }
                     $query = pg_query($con, "SELECT * from accounts WHERE userid='$id'");
@@ -57,7 +57,7 @@
                     pg_query($con, $query);
                 }
             }
-            header ("Location: manage_staff.php?pos=$pos");
+            echo '<meta http-equiv="refresh" content="0;url=manage_staff.php?pos=$pos">';
         }
 
 ?>
@@ -179,7 +179,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

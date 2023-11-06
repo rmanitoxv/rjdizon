@@ -6,10 +6,10 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff.php">';
         }
         if(!isset($_GET['id'])){
-            header ("Location: inventory.php");
+            echo '<meta http-equiv="refresh" content="0;url=inventory.php">';
         }
         $all_id = $_GET['id'];
         $ids = implode(', ', $all_id);
@@ -26,7 +26,7 @@
             $date= (date("F d, Y"));
             $query = "UPDATE inventory SET item_isactive='0', item_date_of_inactive='$date' WHERE itemid IN ($ids) " ;
             pg_query($con, $query);
-            header ("Location: inventory.php");
+            echo '<meta http-equiv="refresh" content="0;url=inventory.php">';
         }
 ?>  
 <!DOCTYPE html>
@@ -54,7 +54,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

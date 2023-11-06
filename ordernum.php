@@ -6,7 +6,7 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff.php">';
         }
         $id = $_GET['id'];
         $query=pg_query($con, "SELECT * FROM projectgroup WHERE pgid=$id");
@@ -111,7 +111,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

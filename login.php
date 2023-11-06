@@ -7,10 +7,10 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result1 =  pg_fetch_assoc($online);
         if ($result1['isadmin'] == 1){
-            header ("Location: admin.php");
+            echo '<meta http-equiv="refresh" content="0;url=admin.php">';
         }
         if ($result1['isstaff'] == 1){
-            header ("Location:  staff/staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff/staff.php">';
         }
     }
     else {
@@ -36,20 +36,20 @@
                   if($row['isadmin'] == 1){
                       $_SESSION['username'] = $row['uname'];
                       $_SESSION['userID'] = $row['userid'];
-                      header("Location: admin.php");
+                      echo '<meta http-equiv="refresh" content="0;url=admin.php">';
                       exit();}
                   else{
                       $_SESSION['username'] = $row['uname'];
                       $_SESSION['userID'] = $row['userid'];
-                      header("Location:  staff/staff.php");
+                      echo '<meta http-equiv="refresh" content="0;url=staff/staff.php">';
                       exit();}
               }
               else{
-                  header("Location: login.php?error=Incorrect Username or Password");
+                  echo '<meta http-equiv="refresh" content="0;url=login.php?error=Incorrect Username or Password">';
               }
             }
             else{
-                header("Location: login.php?error=Incorrect Username or Password");
+                echo '<meta http-equiv="refresh" content="0;url=login.php?error=Incorrect Username or Password">';
             }
         }
 ?>

@@ -6,7 +6,7 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userID = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff.php">';
         }
         $name=$_SESSION['name'];
         $num=$_SESSION['num'];
@@ -54,7 +54,7 @@
             foreach ($tasks as $task){
                 pg_query($con, "INSERT into projecttask (pgid, taskprogress, taskdesc, taskstatus) VALUES ($id, 'Product Design', '$task', 0)");
             }
-            header ("Location: orders.php");
+            echo '<meta http-equiv="refresh" content="0;url=orders.php">';
         }
         
 ?>
@@ -122,7 +122,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

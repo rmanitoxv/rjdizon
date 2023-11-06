@@ -6,7 +6,7 @@
         $online = mysqli_query($con, "SELECT * FROM user WHERE userID = '$id'");
         $result =  mysqli_fetch_assoc($online);
         if ($result['isStaff'] == 1){
-            header ("Location: staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff.php">';
         }
         $id = $_GET['id'];
         $num = $_GET['num'];
@@ -25,20 +25,20 @@
         if (isset($_POST['ctp'])){
             mysqli_query($con, "UPDATE projectgroup SET pgStatus='CTP Processing', pgHandler='Operator' WHERE pgID=$id");
             $prog = "CTP Processing";
-            header ("Location: orderprogress.php?id=$id&num=$num&prog=$prog");
+            echo '<meta http-equiv="refresh" content="0;url=orderprogress.php?id=$id&num=$num&prog=$prog">';
         }   
         if (isset($_POST['proof'])){
             mysqli_query($con, "UPDATE projectgroup SET pgStatus='Proofing', pgHandler='Operator' WHERE pgID=$id");
-            header ("Location: orderprogress.php?id=$id&num=$num&prog=Proofing");
+            echo '<meta http-equiv="refresh" content="0;url=orderprogress.php?id=$id&num=$num&prog=Proofing">';
         }
         if (isset($_POST['mp'])){
             mysqli_query($con, "UPDATE projectgroup SET pgStatus='Mass Production', pgHandler='Operator' WHERE pgID=$id");
             $prog="Mass Production";
-            header ("Location: orderprogress.php?id=$id&num=$num&prog=$prog");
+            echo '<meta http-equiv="refresh" content="0;url=orderprogress.php?id=$id&num=$num&prog=$prog">';
         }
         if (isset($_POST['deliver'])){
             mysqli_query($con, "UPDATE projectgroup SET pgStatus='Delivery', pgHandler='General Manager' WHERE pgID=$id");
-            header ("Location: billingstatement.php?id=$id&num=$num");
+            echo '<meta http-equiv="refresh" content="0;url=billingstatement.php?id=$id&num=$num">';
         }
 ?>
 <!DOCTYPE html>
@@ -71,7 +71,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

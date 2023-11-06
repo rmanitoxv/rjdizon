@@ -6,10 +6,10 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff.php">';
         }
         if(!isset($_GET['ids'])){
-            header ("Location: manage_staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=manage_staff.php">';
         }
         $all_id = $_GET['ids'];
         $ids = implode(', ', $all_id);
@@ -26,7 +26,7 @@
             $date= (date("F d, Y"));
             $query = "UPDATE accounts SET user_isActive='0', user_date_of_inactive='$date' WHERE userid IN ($ids)" ;
             pg_query($con, $query);
-            header ("Location: manage_staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=manage_staff.php">';
         }
 ?>  
 <!DOCTYPE php>
@@ -60,7 +60,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

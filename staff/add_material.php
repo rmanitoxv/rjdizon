@@ -6,12 +6,12 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isadmin'] == 1){
-            header ("Location: ../admin.php");
+            echo '<meta http-equiv="refresh" content="0;url=../admin.php">';
         }
         $id = $_GET['id'];
         $prog = $_GET['prog'];
         if (isset($_POST['back'])){
-            header ("Location: orderprogress.php?id=$id");
+            echo '<meta http-equiv="refresh" content="0;url=orderprogress.php?id=$id">';
         }
         if (isset($_POST['submit'])){
             $count = $_POST['i'];
@@ -45,10 +45,10 @@
             }
             if ($fill == 0){
                     $error = "You have not added any material";
-                    header ("Location: add_material.php?id=$id&prog=$prog&error=$error");
+                    echo '<meta http-equiv="refresh" content="0;url=add_material.php?id=$id&prog=$prog&error=$error">';
             }
             else{
-                header ("Location: orderprogress.php?id=$id&prog=$prog");
+                echo '<meta http-equiv="refresh" content="0;url=orderprogress.php?id=$id&prog=$prog">';
             }
         }
 ?>
@@ -109,7 +109,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

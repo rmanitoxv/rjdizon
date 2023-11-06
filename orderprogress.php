@@ -6,7 +6,7 @@
         $online = mysqli_query($con, "SELECT * FROM user WHERE userID = '$id'");
         $result =  mysqli_fetch_assoc($online);
         if ($result['isStaff'] == 1){
-            header ("Location: staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff.php">';
         }
         $id = $_GET['id'];
         $num = $_GET['num'];
@@ -18,7 +18,7 @@
         if (isset($_POST['submit'])){
             $taskID = $_POST['id'];
             mysqli_query($con, "UPDATE projecttask SET taskStatus=1 WHERE taskID=$taskID");
-            header ("Location: orderprogress.php?id=$id&num=$num&prog=$prog");
+            echo '<meta http-equiv="refresh" content="0;url=orderprogress.php?id=$id&num=$num&prog=$prog">';
         }
 ?>
 <!DOCTYPE html>
@@ -97,7 +97,7 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        echo '<meta http-equiv="refresh" content="0;url=login.php">';
         exit();
     }
 ?>

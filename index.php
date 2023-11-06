@@ -7,10 +7,10 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result1 =  pg_fetch_assoc($online);
         if ($result1['isadmin'] == 1){
-            header ("Location: admin.php");
+            echo '<meta http-equiv="refresh" content="0;url=admin.php">';
         }
         if ($result1['isstaff'] == 1){
-            header ("Location: staff/staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff/staff.php">';
         }
     }
     if(isset($_POST['submit'])){
@@ -18,7 +18,7 @@
         $sql = "SELECT * FROM projectgroup WHERE pglink='$link'";
         $result = pg_query($con, $sql);
         if(pg_num_rows($result) == 1) {
-            header ("Location: track.php?link=$link");
+            echo '<meta http-equiv="refresh" content="0;url=track.php?link=$link">';
         }
     }
 ?>

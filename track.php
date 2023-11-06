@@ -7,10 +7,10 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result1 =  pg_fetch_assoc($online);
         if ($result1['isAdmin'] == 1){
-            header ("Location: admin.php");
+            echo '<meta http-equiv="refresh" content="0;url=admin.php">';
         }
         if ($result1['isStaff'] == 1){
-            header ("Location: staff.php");
+            echo '<meta http-equiv="refresh" content="0;url=staff.php">';
         }
     }
     if(isset($_GET['link'])){
@@ -32,7 +32,7 @@
         }
     }
     else{
-        header ("Location: index.php");
+        echo '<meta http-equiv="refresh" content="0;url=index.php">';
     }
 ?>
 <!DOCTYPE html>
