@@ -34,15 +34,19 @@
               $row = pg_fetch_assoc($result);
               if($row['uname'] == $username && $row['pw'] == md5($password) && $row['user_isactive'] == 1) {
                   if($row['isadmin'] == 1){
+                      $_SESSION['username'] = $row['uname'];
+                      $_SESSION['userID'] = $row['userid'];
+                      header("HTTP/1.1 301 Moved Permanently");
                       header("Location: admin.php");
-                      $_SESSION['username'] = $row['uname'];
-                      $_SESSION['userID'] = $row['userid'];
-                      exit();}
+                      exit();
+                    }
                   else{
-                      header("Location:  staff/staff.php");
                       $_SESSION['username'] = $row['uname'];
                       $_SESSION['userID'] = $row['userid'];
-                      exit();}
+                      header("HTTP/1.1 301 Moved Permanently");
+                      header("Location:  staff/staff.php");
+                      exit();
+                    }
               }
               else{
                   header("Location: login.php?error=Incorrect Username or Password");
