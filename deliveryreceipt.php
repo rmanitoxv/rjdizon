@@ -6,7 +6,8 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: staff.php");
         }
         $id = $_GET['id'];
         if (isset($_POST['submit'])){
@@ -55,7 +56,8 @@
             pg_query($con, "UPDATE projecttask SET taskStatus=1 WHERE pgid=$id and taskprogress='Delivery' and taskdesc='Prepare documents'");
             $notif = "GENERAL MANAGER just finished the Prepare Documents task for $customer";
             pg_query($con, "INSERT into notifications (notif, ndate, ntime) VALUES ('$notif', '$date', '$time')");
-            header ("Location: ordernum.php?id=$id");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: ordernum.php?id=$id");
         }
 ?>
 <!DOCTYPE html>
@@ -96,7 +98,8 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: login.php");
         exit();
     }
 ?>

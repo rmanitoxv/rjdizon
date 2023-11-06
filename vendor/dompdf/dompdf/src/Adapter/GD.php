@@ -1030,12 +1030,16 @@ class GD implements Canvas
                 break;
         }
 
-        header("Cache-Control: private");
-        header("Content-Type: $contentType");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Cache-Control: private");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Content-Type: $contentType");
 
         $filename = str_replace(["\n", "'"], "", basename($filename, ".$type")) . $extension;
         $attachment = $options["Attachment"] ? "attachment" : "inline";
-        header(Helpers::buildContentDispositionHeader($attachment, $filename));
+        header ("HTTP/1.1 301 Moved Permanently");
+header (Helpers::buildContentDispositionheader ("HTTP/1.1 301 Moved Permanently");
+header ($attachment, $filename));
 
         $this->_output($options);
         flush();

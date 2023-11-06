@@ -7,10 +7,12 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result1 =  pg_fetch_assoc($online);
         if ($result1['isAdmin'] == 1){
-            header ("Location: admin.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: admin.php");
         }
         if ($result1['isStaff'] == 1){
-            header ("Location: staff.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: staff.php");
         }
     }
     if(isset($_GET['link'])){
@@ -32,7 +34,8 @@
         }
     }
     else{
-        header ("Location: index.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: index.php");
     }
 ?>
 <!DOCTYPE html>

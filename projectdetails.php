@@ -6,7 +6,8 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userID = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: staff.php");
         }
         $name=$_SESSION['name'];
         $num=$_SESSION['num'];
@@ -54,7 +55,8 @@
             foreach ($tasks as $task){
                 pg_query($con, "INSERT into projecttask (pgid, taskprogress, taskdesc, taskstatus) VALUES ($id, 'Product Design', '$task', 0)");
             }
-            header ("Location: orders.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: orders.php");
         }
         
 ?>
@@ -122,7 +124,8 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: login.php");
         exit();
     }
 ?>

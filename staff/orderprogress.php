@@ -6,14 +6,16 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isadmin'] == 1){
-            header ("Location: ../admin.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: ../admin.php");
         }
         $online = pg_query($con, "SELECT * FROM accounts INNER JOIN staff ON accounts.userid = staff.userid WHERE accounts.userid = '$id'");
         $result =  pg_fetch_assoc($online);
         $role = strtoupper($result['staffposition']);
         $id = $_GET['id'];
 		if ($role == "ARTIST"){
-            header ("Location: orderprogress1.php?id=$id&num=$num");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: orderprogress1.php?id=$id&num=$num");
         }
         $query=pg_query($con, "SELECT * FROM projectgroup WHERE pgid=$id");
         $result=pg_fetch_assoc($query);
@@ -48,16 +50,19 @@
                         }
                     }
                 }
-                header("Location: orders.php");
+                header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: orders.php");
             }
             else{
-                header("Location: orderprogress.php?id=$id");
+                header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: orderprogress.php?id=$id");
             }
         }
         if (isset($_POST['undo'])){
             $taskID = $_POST['id'];
             pg_query($con, "UPDATE projecttask SET taskstatus=0 WHERE taskid=$taskID");
-            header("Location: orderprogress.php?id=$id");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: orderprogress.php?id=$id");
         }
         
 		$rows = pg_query($con, "SELECT * FROM projectmaterials WHERE pgid=$id AND pmprogress='$prog'");
@@ -164,7 +169,8 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: login.php");
         exit();
     }
 ?>

@@ -6,7 +6,8 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: staff.php");
         }
         $id=$_GET['id'];
 		$query = pg_query($con, "SELECT * FROM logs WHERE pgid=$id");
@@ -18,7 +19,8 @@
 			$_SESSION['tin']=$_POST['tin'];
 			$_SESSION['cashier']=$_POST['cashier'];
 			$_SESSION['oramount']=$_POST['oramount'];
-			header ("Location: complete_order.php");
+			header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: complete_order.php");
 		}
 ?>
 <!DOCTYPE html>
@@ -74,7 +76,8 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: login.php");
         exit();
     }
 ?>

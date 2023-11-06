@@ -4647,9 +4647,12 @@ EOT;
         $debug = !$options['compress'];
         $tmp = ltrim($this->output($debug));
 
-        header("Cache-Control: private");
-        header("Content-Type: application/pdf");
-        header("Content-Length: " . mb_strlen($tmp, "8bit"));
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Cache-Control: private");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Content-Type: application/pdf");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Content-Length: " . mb_strlen($tmp, "8bit"));
 
         $filename = str_replace(["\n", "'"], "", basename($filename, ".pdf")) . ".pdf";
         $attachment = $options["Attachment"] ? "attachment" : "inline";
@@ -4663,7 +4666,8 @@ EOT;
         if ($fallbackfilename !== $filename) {
             $contentDisposition .= "; filename*=UTF-8''$encodedfilename";
         }
-        header($contentDisposition);
+        header ("HTTP/1.1 301 Moved Permanently");
+header ($contentDisposition);
 
         echo $tmp;
         flush();

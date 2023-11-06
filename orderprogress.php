@@ -6,7 +6,8 @@
         $online = mysqli_query($con, "SELECT * FROM user WHERE userID = '$id'");
         $result =  mysqli_fetch_assoc($online);
         if ($result['isStaff'] == 1){
-            header ("Location: staff.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: staff.php");
         }
         $id = $_GET['id'];
         $num = $_GET['num'];
@@ -18,7 +19,8 @@
         if (isset($_POST['submit'])){
             $taskID = $_POST['id'];
             mysqli_query($con, "UPDATE projecttask SET taskStatus=1 WHERE taskID=$taskID");
-            header ("Location: orderprogress.php?id=$id&num=$num&prog=$prog");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: orderprogress.php?id=$id&num=$num&prog=$prog");
         }
 ?>
 <!DOCTYPE html>
@@ -97,7 +99,8 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: login.php");
         exit();
     }
 ?>

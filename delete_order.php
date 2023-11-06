@@ -6,7 +6,8 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff/staff.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: staff/staff.php");
         }
         $id = $_GET['id'];
         $query = pg_query($con, "SELECT * FROM projectgroup WHERE pgid=$id");
@@ -16,7 +17,8 @@
             $date= (date("F d, Y"));
             pg_query($con, "UPDATE projectgroup SET pg_isactive=0, pg_date_of_inactive='$date', pghandler='None' WHERE pgid=$id");
             pg_query($con, "UPDATE revenue SET r_isactive=0, r_date_of_inactive='$date' WHERE pgid=$id");
-            header ("Location: orders.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: orders.php");
         }
 ?>
 <!DOCTYPE php>
@@ -49,7 +51,8 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: login.php");
         exit();
     }
 ?>

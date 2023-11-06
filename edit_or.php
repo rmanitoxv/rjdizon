@@ -6,10 +6,12 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: staff.php");
         }
         if(!isset($_GET['id'])){
-            header ("Location: receipt.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: receipt.php");
         }
         $all_id = $_GET['id'];
         $ids = implode(', ', $all_id);
@@ -34,7 +36,8 @@
                 $query = "UPDATE officialreceipt SET orserial='$serial', orcustomer='$customer', ortin='$tin', orcashier='$cashier', or_ispartial='$partial', or_isfull='$full', oramount='$amount' WHERE orid='$id' ";
                 pg_query($con, $query);
             }
-            header ("Location: officialreceipt.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: officialreceipt.php");
         }
 ?>
 <!DOCTYPE html>
@@ -114,7 +117,8 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: login.php");
         exit();
     }
 ?>

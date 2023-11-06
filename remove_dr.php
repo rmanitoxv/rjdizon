@@ -6,10 +6,12 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: staff.php");
         }
         if(!isset($_GET['ids'])){
-            header ("Location: del_receipt.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: del_receipt.php");
         }
         $all_id = $_GET['ids'];
         $ids = implode(', ', $all_id);
@@ -26,7 +28,8 @@
             $date= (date("F d, Y"));
             $query = "UPDATE deliveryreceipt SET dr_isactive='0', dr_date_of_inactive='$date' WHERE drid IN ($ids) " ;
             pg_query($con, $query);
-            header ("Location: del_receipt.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: del_receipt.php");
         }
 ?>
 <!DOCTYPE html>
@@ -55,7 +58,8 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: login.php");
         exit();
     }
 ?>

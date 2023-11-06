@@ -6,7 +6,8 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: staff.php");
         }
         $id=$_GET['id'];
         $query = pg_query($con, "SELECT * FROM logs WHERE logsID=$id");
@@ -35,7 +36,8 @@
 			$r = pg_fetch_assoc($query);
 			$income = (int)$r['rincome'] + $orAmount;
 			pg_query($con, "UPDATE revenue SET rincome='$income' WHERE pgid=$id1");
-            header("Location: logs.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: logs.php");
         }
 ?>
 <!DOCTYPE php>
@@ -95,7 +97,8 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: login.php");
         exit();
     }
 ?>

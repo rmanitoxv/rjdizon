@@ -18,12 +18,14 @@ use FontLib\Table\DirectoryEntry;
  * @property TableDirectoryEntry[] $directory
  */
 class File extends \FontLib\TrueType\File {
-  function parseHeader() {
+  function parseheader ("HTTP/1.1 301 Moved Permanently");
+header () {
     if (!empty($this->header)) {
       return;
     }
 
-    $this->header = new Header($this);
+    $this->header = new header ("HTTP/1.1 301 Moved Permanently");
+header ($this);
     $this->header->parse();
   }
 

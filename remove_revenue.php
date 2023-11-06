@@ -6,10 +6,12 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("Location: staff.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: staff.php");
         }
         if(!isset($_GET['ids'])){
-            header ("Location: revenue.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: revenue.php");
         }
         $all_id = $_GET['ids'];
         $ids = implode(', ', $all_id);
@@ -26,7 +28,8 @@
             $date= (date("F d, Y"));
             $query = "UPDATE revenue SET r_isactive='0', r_date_of_inactive='$date' WHERE rid IN ($ids) " ;
             pg_query($con, $query);
-            header ("Location: revenue.php");
+            header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: revenue.php");
         }
 ?>  
 <!DOCTYPE html>
@@ -55,7 +58,8 @@
 <?php
     }
     else {
-        header("Location: login.php");
+        header ("HTTP/1.1 301 Moved Permanently");
+header ("Location: login.php");
         exit();
     }
 ?>
