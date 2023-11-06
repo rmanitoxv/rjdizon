@@ -6,8 +6,7 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: staff/staff.php");
+            header ("Location: staff/staff.php");
         }
         $id = $_SESSION['pgid'];
 		$query = pg_query($con, "SELECT * FROM projectgroup WHERE pgid=$id");
@@ -47,8 +46,7 @@ header ("Location: staff/staff.php");
 			pg_query($con, "UPDATE revenue SET rIncome='$income' WHERE pgid=$id");
 			$notif = "GENERAL MANAGER just Finished the Order for $customer";
             pg_query($con, "INSERT into notifications (notif, ndate, ntime) VALUES ('$notif', '$date', '$time')");
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: orders.php");
+            header ("Location: orders.php");
         }
 ?>
 <!DOCTYPE html>
@@ -78,8 +76,7 @@ header ("Location: orders.php");
 <?php
     }
     else {
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 ?>

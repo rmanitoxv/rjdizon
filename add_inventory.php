@@ -6,8 +6,7 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: staff.php");
+            header ("Location: staff.php");
         }
         if(isset($_POST['submit'])){
             $name = $_POST['name'];
@@ -17,8 +16,7 @@ header ("Location: staff.php");
             $ppu = $_POST['ppu'];
             $query = "INSERT into inventory (itemname, itemquantity, itemppu, itemunit, itemthreshold, item_isactive, item_date_of_inactive) VALUES ('$name', $quantity, $ppu, '$unit', $threshold, '1', '')";
             pg_query($con, $query);
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: inventory.php");
+            header ("Location: inventory.php");
         }
 ?>
 <!DOCTYPE html>
@@ -68,8 +66,7 @@ header ("Location: inventory.php");
 <?php
     }
     else {
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 ?>

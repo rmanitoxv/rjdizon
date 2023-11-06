@@ -6,8 +6,7 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: staff.php");
+            header ("Location: staff.php");
         }
         $query="SELECT * FROM revenue WHERE r_isactive=1";
         if (isset($_GET['search1'])){
@@ -87,8 +86,7 @@ header ("Location: staff.php");
 <?php
     }
     else {
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 ?>

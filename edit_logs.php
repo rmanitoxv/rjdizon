@@ -6,12 +6,10 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: staff.php");
+            header ("Location: staff.php");
         }
         if(!isset($_GET['ids'])){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: logs.php");
+            header ("Location: logs.php");
         }
         $all_id = $_GET['ids'];
         $ids = implode(', ', $all_id);
@@ -28,8 +26,7 @@ header ("Location: logs.php");
                 $query = "UPDATE logs SET logsbsserial='$serial', logspo='$po', logscustomer='$customer', logstotal='$total', logspayable='$payable', logsdate='$date' WHERE logsid='$id' ";
                 pg_query($con, $query);
             }
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: logs.php");
+            header ("Location: logs.php");
         }
 ?>
 <!DOCTYPE html>
@@ -96,8 +93,7 @@ header ("Location: logs.php");
 <?php
     }
     else {
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 ?>

@@ -6,14 +6,12 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isadmin'] == 1){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: ../admin.php");
+            header ("Location: ../admin.php");
         }
         $id = $_GET['id'];
         $prog = $_GET['prog'];
         if (isset($_POST['back'])){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: orderprogress.php?id=$id");
+            header ("Location: orderprogress.php?id=$id");
         }
         if (isset($_POST['submit'])){
             $count = $_POST['i'];
@@ -47,12 +45,10 @@ header ("Location: orderprogress.php?id=$id");
             }
             if ($fill == 0){
                     $error = "You have not added any material";
-                    header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: add_material.php?id=$id&prog=$prog&error=$error");
+                    header ("Location: add_material.php?id=$id&prog=$prog&error=$error");
             }
             else{
-                header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: orderprogress.php?id=$id&prog=$prog");
+                header ("Location: orderprogress.php?id=$id&prog=$prog");
             }
         }
 ?>
@@ -113,8 +109,7 @@ header ("Location: orderprogress.php?id=$id&prog=$prog");
 <?php
     }
     else {
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 ?>

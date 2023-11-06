@@ -6,15 +6,13 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userID = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: staff.php");
+            header ("Location: staff.php");
         }
 		if (isset($_POST['submit'])){
 			$_SESSION['name'] = $_POST['name'];
 			$_SESSION['po'] = $_POST['po'];
 			$_SESSION['num'] = $_POST['num'];
-			header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: generaldetails.php");
+			header ("Location: generaldetails.php");
 		}
 ?>
 <!DOCTYPE html>
@@ -66,8 +64,7 @@ header ("Location: generaldetails.php");
 <?php
     }
     else {
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 ?>

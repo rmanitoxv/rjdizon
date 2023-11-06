@@ -1527,18 +1527,13 @@ class PDFLib implements Canvas
             $size = filesize($this->_file);
         }
 
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Cache-Control: private");
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Content-Type: application/pdf");
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Content-Length: " . $size);
+        header("Cache-Control: private");
+        header("Content-Type: application/pdf");
+        header("Content-Length: " . $size);
 
         $filename = str_replace(["\n", "'"], "", basename($filename, ".pdf")) . ".pdf";
         $attachment = $options["Attachment"] ? "attachment" : "inline";
-        header ("HTTP/1.1 301 Moved Permanently");
-header (Helpers::buildContentDispositionheader ("HTTP/1.1 301 Moved Permanently");
-header ($attachment, $filename));
+        header(Helpers::buildContentDispositionHeader($attachment, $filename));
 
         if (self::$IN_MEMORY) {
             echo $data;

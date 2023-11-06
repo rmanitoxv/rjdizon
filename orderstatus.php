@@ -6,8 +6,7 @@
         $online = mysqli_query($con, "SELECT * FROM user WHERE userID = '$id'");
         $result =  mysqli_fetch_assoc($online);
         if ($result['isStaff'] == 1){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: staff.php");
+            header ("Location: staff.php");
         }
         $id = $_GET['id'];
         $num = $_GET['num'];
@@ -26,24 +25,20 @@ header ("Location: staff.php");
         if (isset($_POST['ctp'])){
             mysqli_query($con, "UPDATE projectgroup SET pgStatus='CTP Processing', pgHandler='Operator' WHERE pgID=$id");
             $prog = "CTP Processing";
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: orderprogress.php?id=$id&num=$num&prog=$prog");
+            header ("Location: orderprogress.php?id=$id&num=$num&prog=$prog");
         }   
         if (isset($_POST['proof'])){
             mysqli_query($con, "UPDATE projectgroup SET pgStatus='Proofing', pgHandler='Operator' WHERE pgID=$id");
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: orderprogress.php?id=$id&num=$num&prog=Proofing");
+            header ("Location: orderprogress.php?id=$id&num=$num&prog=Proofing");
         }
         if (isset($_POST['mp'])){
             mysqli_query($con, "UPDATE projectgroup SET pgStatus='Mass Production', pgHandler='Operator' WHERE pgID=$id");
             $prog="Mass Production";
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: orderprogress.php?id=$id&num=$num&prog=$prog");
+            header ("Location: orderprogress.php?id=$id&num=$num&prog=$prog");
         }
         if (isset($_POST['deliver'])){
             mysqli_query($con, "UPDATE projectgroup SET pgStatus='Delivery', pgHandler='General Manager' WHERE pgID=$id");
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: billingstatement.php?id=$id&num=$num");
+            header ("Location: billingstatement.php?id=$id&num=$num");
         }
 ?>
 <!DOCTYPE html>
@@ -76,8 +71,7 @@ header ("Location: billingstatement.php?id=$id&num=$num");
 <?php
     }
     else {
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 ?>

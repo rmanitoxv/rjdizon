@@ -27,20 +27,17 @@ class File extends \FontLib\TrueType\File {
    */
   public $header;
 
-  function parseheader ("HTTP/1.1 301 Moved Permanently");
-header () {
+  function parseHeader() {
     if (!empty($this->header)) {
       return;
     }
 
-    $this->header = new header ("HTTP/1.1 301 Moved Permanently");
-header ($this);
+    $this->header = new Header($this);
     $this->header->parse();
   }
 
   function parse() {
-    $this->parseheader ("HTTP/1.1 301 Moved Permanently");
-header ();
+    $this->parseHeader();
 
     $flags = $this->header->data["Flags"];
 

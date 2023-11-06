@@ -1167,18 +1167,13 @@ class CPDF implements Canvas
         $debug = !$options['compress'];
         $tmp = ltrim($this->_pdf->output($debug));
 
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Cache-Control: private");
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Content-Type: application/pdf");
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Content-Length: " . mb_strlen($tmp, "8bit"));
+        header("Cache-Control: private");
+        header("Content-Type: application/pdf");
+        header("Content-Length: " . mb_strlen($tmp, "8bit"));
 
         $filename = str_replace(["\n", "'"], "", basename($filename, ".pdf")) . ".pdf";
         $attachment = $options["Attachment"] ? "attachment" : "inline";
-        header ("HTTP/1.1 301 Moved Permanently");
-header (Helpers::buildContentDispositionheader ("HTTP/1.1 301 Moved Permanently");
-header ($attachment, $filename));
+        header(Helpers::buildContentDispositionHeader($attachment, $filename));
 
         echo $tmp;
         flush();

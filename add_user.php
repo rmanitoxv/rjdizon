@@ -6,8 +6,7 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: staff.php");
+            header ("Location: staff.php");
         }
         if(isset($_POST['submit'])){
             $uname = $_POST['uname'];
@@ -18,13 +17,11 @@ header ("Location: staff.php");
             $result1 = pg_fetch_assoc($result);
             if ($pw != $cpw){
                 $error="Password and Change Password is not the same";
-                header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: add_user.php?error=$error");
+                header ("Location: add_user.php?error=$error");
             }
             else if(pg_num_rows($result) > 0) {
                 $error="Username is already taken";
-                header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: add_user.php?error=$error");
+                header ("Location: add_user.php?error=$error");
             }
             else{
                 $pw = md5($pw);
@@ -45,8 +42,7 @@ header ("Location: add_user.php?error=$error");
                 $id = $id1['userid'];
                 $query = "INSERT into staff (userid, stafffname, stafflname, staffposition) VALUES ($id, '$fname', '$lname', '$pos')";
                 pg_query($con, $query);
-                header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: manage_staff.php");
+                header ("Location: manage_staff.php");
             }
         }
 ?>
@@ -130,8 +126,7 @@ header ("Location: manage_staff.php");
 <?php
     }
     else {
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 ?>

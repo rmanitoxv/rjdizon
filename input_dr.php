@@ -6,8 +6,7 @@
         $online = mysqli_query($con, "SELECT * FROM user WHERE userID = '$id'");
         $result =  mysqli_fetch_assoc($online);
         if ($result['isStaff'] == 1){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: staff.php");
+            header ("Location: staff.php");
         }
         $id = $_GET['id'];
         if (isset($_POST['submit'])){
@@ -32,8 +31,7 @@ header ("Location: staff.php");
                 $desc = $row['projectDesc'];
                 mysqli_query($con, "INSERT INTO drdetails VALUES('', $drID, '$desc', '$qty', '$unit')");
             endforeach;
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: ordernum.php?id=$id");
+            header ("Location: ordernum.php?id=$id");
         }
 ?>
 <!DOCTYPE php>
@@ -64,8 +62,7 @@ header ("Location: ordernum.php?id=$id");
 <?php
     }
     else {
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 ?>

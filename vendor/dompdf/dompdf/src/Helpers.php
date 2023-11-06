@@ -141,8 +141,7 @@ class Helpers
      * @param string $filename
      * @return string
      */
-    public static function buildContentDispositionheader ("HTTP/1.1 301 Moved Permanently");
-header ($dispositionType, $filename)
+    public static function buildContentDispositionHeader($dispositionType, $filename)
     {
         $encoding = mb_detect_encoding($filename);
         $fallbackfilename = mb_convert_encoding($filename, "ISO-8859-1", $encoding);

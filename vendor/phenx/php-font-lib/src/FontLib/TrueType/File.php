@@ -253,16 +253,14 @@ class File extends BinaryStream {
     }
   }
 
-  function parseheader ("HTTP/1.1 301 Moved Permanently");
-header () {
+  function parseHeader() {
     if (!empty($this->header)) {
       return;
     }
 
     $this->seek($this->tableOffset);
 
-    $this->header = new header ("HTTP/1.1 301 Moved Permanently");
-header ($this);
+    $this->header = new Header($this);
     $this->header->parse();
   }
 
@@ -272,8 +270,7 @@ header ($this);
   }
 
   function parseTableEntries() {
-    $this->parseheader ("HTTP/1.1 301 Moved Permanently");
-header ();
+    $this->parseHeader();
 
     if (!empty($this->directory)) {
       return;

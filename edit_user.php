@@ -6,12 +6,10 @@
         $online = pg_query($con, "SELECT * FROM accounts WHERE userid = '$id'");
         $result =  pg_fetch_assoc($online);
         if ($result['isstaff'] == 1){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: staff.php");
+            header ("Location: staff.php");
         }
         if(!isset($_GET['ids'])){
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: manage_staff.php");
+            header ("Location: manage_staff.php");
         }
         $all_id = $_GET['ids'];
         $ids = implode(', ', $all_id);
@@ -25,16 +23,14 @@ header ("Location: manage_staff.php");
                 $sql = pg_query($con, "SELECT * FROM accounts INNER JOIN staff ON accounts.userid = staff.userid WHERE uname='$uname' and user_isactive=1");
                 if ($pw != $cpw){
                     $error="Password and Change Password is not the same";
-                    header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: edit_user.php?error=$error&ids=$all_id");
+                    header ("Location: edit_user.php?error=$error&ids=$all_id");
                 }
                 else{
                     $result = pg_fetch_assoc($sql);
                     if(pg_num_rows($sql) > 0) {
                         if ($uname != $result['uname']){
                             $error="Username is already taken";
-                            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: edit_user.php?error=$error&ids=$all_id");
+                            header ("Location: edit_user.php?error=$error&ids=$all_id");
                         }
                     }
                     $query = pg_query($con, "SELECT * from accounts WHERE userid='$id'");
@@ -61,8 +57,7 @@ header ("Location: edit_user.php?error=$error&ids=$all_id");
                     pg_query($con, $query);
                 }
             }
-            header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: manage_staff.php?pos=$pos");
+            header ("Location: manage_staff.php?pos=$pos");
         }
 
 ?>
@@ -184,8 +179,7 @@ header ("Location: manage_staff.php?pos=$pos");
 <?php
     }
     else {
-        header ("HTTP/1.1 301 Moved Permanently");
-header ("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 ?>
